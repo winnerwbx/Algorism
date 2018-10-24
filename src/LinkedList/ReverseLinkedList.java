@@ -39,14 +39,13 @@ public class ReverseLinkedList {
             }
             ListNode currentNode = head;
             ListNode prevNode = null;
-            while (currentNode.next != null) {
+            while (currentNode != null) {
                 ListNode nextNode = currentNode.next;
                 currentNode.next = prevNode;
                 prevNode = currentNode;
                 currentNode = nextNode;
             }
-            currentNode.next = prevNode;
-            return currentNode;
+            return prevNode;
         }
     }
 
