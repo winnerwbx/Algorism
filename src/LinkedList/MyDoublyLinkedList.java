@@ -1,3 +1,9 @@
+package LinkedList;
+
+/**
+ * see https://leetcode.com/problems/design-linked-list/
+ * # 707
+ */
 class MyDoublyLinkedList {
     private Node head = null;
     private Node tail = null;
@@ -147,8 +153,8 @@ class MyDoublyLinkedList {
 }
 
 /**
- * Your MySinglyLinkedList object will be instantiated and called as such:
- * MySinglyLinkedList obj = new MySinglyLinkedList();
+ * Your LinkedList.MySinglyLinkedList object will be instantiated and called as such:
+ * LinkedList.MySinglyLinkedList obj = new LinkedList.MySinglyLinkedList();
  * int param_1 = obj.get(index);
  * obj.addAtHead(val);
  * obj.addAtTail(val);
