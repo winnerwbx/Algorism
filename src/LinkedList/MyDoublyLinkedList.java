@@ -1,8 +1,8 @@
 package LinkedList;
 
 /**
- * see https://leetcode.com/problems/design-linked-list/
- * # 707
+ * https://leetcode.com/problems/design-linked-list/
+ * #707
  */
 class MyDoublyLinkedList {
     private Node head = null;
