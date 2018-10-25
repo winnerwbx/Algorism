@@ -1,4 +1,4 @@
-package Stack;
+package StackAndQueue;
 
 /**
  * https://leetcode.com/problems/min-stack/
