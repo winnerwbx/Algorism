@@ -1,5 +1,9 @@
 package LinkedList;
 
+/**
+ * https://leetcode.com/problems/linked-list-cycle/
+ * #141
+ */
 public class LinkedListCycle {
     /**
      * Definition for singly-linked list.
