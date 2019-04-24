@@ -50,7 +50,7 @@ public class Main {
             }
             String[] splits = line.split(",");
             int size = splits.length;
-            ".*,[\d\.].*,\d"
+            //".*,[\d\.].*,\d"
             MyRate myRate = new MyRate();
             myRate.name = splits[0];
             myRate.running_time = splits[1];
