@@ -19,16 +19,13 @@ public class ReverseLinkedList {
 
     class RecursiveSolution {
         public ListNode reverseList(ListNode head) {
-            if (head == null) {
-                return null;
-            }
-            if (head.next == null) {
+            if(head == null || head.next == null){
                 return head;
             }
-            ListNode node = reverseList(head.next);
+            ListNode result = reverseList(head.next);
             head.next.next = head;
             head.next = null;
-            return head;
+            return result;
         }
     }
 
