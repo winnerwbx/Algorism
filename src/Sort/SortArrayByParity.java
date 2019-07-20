@@ -32,18 +32,18 @@ package Sort;
 public class SortArrayByParity {
     static class Solution {
         public int[] sortArrayByParity(int[] A) {
-            int[] output = new int[A.length];
+            int[] B = new int[A.length];
             int j = 0, k = A.length - 1;
             for (int i = 0; i < A.length; i++) {
                 if (A[i] % 2 == 0) {
-                    output[j] = A[i];
+                    B[j] = A[i];
                     j++;
                 } else {
-                    output[k] = A[i];
+                    B[k] = A[i];
                     k--;
                 }
             }
-            return output;
+            return B;
         }
     }
 
