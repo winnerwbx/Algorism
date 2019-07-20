@@ -1,4 +1,7 @@
-package BinarySearch;
+package Tree;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * https://leetcode.com/problems/generate-parentheses/
@@ -16,23 +19,25 @@ package BinarySearch;
  * "()()()"
  * ]
  */
-class Solution {
-    public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-        gen("", n, n, result);
-        return result;
-    }
+class GenerateParentheses {
+    class Solution {
+        public List<String> generateParenthesis(int n) {
+            List<String> result = new ArrayList<>();
+            gen("", n, n, result);
+            return result;
+        }
 
-    private void gen(String cur, int left, int right, List<String> result) {
-        if (left == 0 && right == 0) {
-            result.add(cur);
-            return;
-        }
-        if (left > 0) {
-            gen(cur+"(", left - 1, right, result);
-        }
-        if (right > left) {
-            gen(cur+")", left, right - 1, result);
+        private void gen(String cur, int left, int right, List<String> result) {
+            if (left == 0 && right == 0) {
+                result.add(cur);
+                return;
+            }
+            if (left > 0) {
+                gen(cur + "(", left - 1, right, result);
+            }
+            if (right > left) {
+                gen(cur + ")", left, right - 1, result);
+            }
         }
     }
 }
