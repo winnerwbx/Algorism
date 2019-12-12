@@ -2,6 +2,7 @@ package DynamicProgramming;
 
 public class LongestIncreasingSubsequence {
     /**
+     * <a herf="https://leetcode.com/problems/longest-increasing-subsequence/">LeetCode #300</a>
      * Given an unsorted array of integers, find the length of longest increasing subsequence.
      * <p>
      * Example:
