@@ -47,6 +47,10 @@ public class MajorityNum {
             return result;
         }
 
+        /**
+         * 给一个计数器，只要两个元素不相等，就-1，否则+1
+         * 当抵消之后，存储下一个元素
+         */
         public int majorityElement2(int[] nums) {
             int res = nums[0];
             int total = 0;
