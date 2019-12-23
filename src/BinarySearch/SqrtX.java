@@ -8,27 +8,21 @@ class SqrtX {
      */
     class Solution {
         public int mySqrt(int x) {
-            if (x == 0) {
-                return 0;
-            }
-            if (x == 1) {
-                return 1;
-            }
-            int min = 1;
-            int max = x;
-            while (true) {
-                int mid = min + (max - min) / 2;
+            int left = 0;
+            int right = x;
+            while (left < right) {
+                // 取右中位数，如果是左中位数，则用(left + right) >>> 1
+                int mid = (left + right + 1) >>> 1;
                 int tmp = x / mid;
-                if (mid == tmp || mid < tmp && (mid + 1) > x / (mid + 1)) {
-                    return mid;
-                }
-                if (mid < tmp) {
-                    min = mid;
-                }
                 if (mid > tmp) {
-                    max = mid;
+                    // 先排除逻辑
+                    right = mid - 1;
+                } else {
+                    // 左边是闭区间，所以要用右中位数
+                    left = mid;
                 }
             }
+            return left;
         }
     }
 }

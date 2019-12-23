@@ -1,5 +1,9 @@
 package DynamicProgramming;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LongestIncreasingSubsequence {
     /**
      * <a herf="https://leetcode.com/problems/longest-increasing-subsequence/">LeetCode #300</a>
@@ -25,18 +29,18 @@ public class LongestIncreasingSubsequence {
             if (length <= 1) {
                 return length;
             }
-            // results[i]存储的是以 nums[i] 结尾的“最长上升子序列”的长度
-            int[] results = new int[length];
+            // dp[i]存储的是以 nums[i] 结尾的“最长上升子序列”的长度
+            int[] dp = new int[length];
             int max = 1;
-            results[0] = 1; // 初始化为1，如果为单调递减序列，则各个位置的LIS都为1
+            dp[0] = 1; // 初始化为1，如果为单调递减序列，则各个位置的LIS都为1
             for (int i = 1; i < length; i++) {
-                results[i] = 1;
+                dp[i] = 1;
                 for (int j = 0; j < i; j++) {
                     if (nums[i] > nums[j]) {
-                        results[i] = Math.max(results[j] + 1, results[i]);
+                        dp[i] = Math.max(dp[j] + 1, dp[i]);
                     }
                 }
-                max = Math.max(max, results[i]);
+                max = Math.max(max, dp[i]);
             }
             return max;
         }
@@ -80,6 +84,55 @@ public class LongestIncreasingSubsequence {
             }
             // 返回tails的数组长度
             return end + 1;
+        }
+    }
+
+    class Solution2 {
+        public int lengthOfLIS(int[] nums) {
+            if (nums.length == 0) {
+                return 0;
+            }
+            // dp[i]代表以index=i结尾的数组中最长上升子序列的长度
+            int[] dp = new int[nums.length];
+            int result = 1;
+            // 1. 初始化dp，都置为1
+            Arrays.fill(dp, 1);
+            for (int i = 1; i < dp.length; i++) {
+                for (int j = 1; j < i; j++) {
+                    if (nums[i] > nums[j]) {
+                        dp[i] = Math.max(dp[i], dp[j] + 1);
+                    }
+                }
+                result = Math.max(result, dp[i]);
+            }
+            return result;
+        }
+
+        public int lis(int[] nums) {
+            if (nums.length == 0) {
+                return 0;
+            }
+            List<Integer> result = new ArrayList<>();
+            result.add(nums[0]);
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] > result.get(result.size() - 1)) {
+                    result.add(nums[i]);
+                } else {
+                    // 二分查找该替换的元素
+                    int left = 0;
+                    int right = result.size() - 1;
+                    while (left < right) {
+                        int mid = (left + right) >>> 1;
+                        if (result.get(mid) < nums[i]) {
+                            left = mid + 1;
+                        } else {
+                            right = mid;
+                        }
+                    }
+                    result.set(left, nums[i]);
+                }
+            }
+            return result.size();
         }
     }
 }
