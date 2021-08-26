@@ -65,9 +65,9 @@ package Array;
  * // -100 <= nums[i] <= 100
  * // nums is sorted in non-decreasing order.
  */
-public class RemoveDupsFromSortedArray {
+public class RemoveDupsFromSortedArray26 {
     public static void main(String[] args) {
-        Solution s = new RemoveDupsFromSortedArray().new Solution();
+        Solution s = new RemoveDupsFromSortedArray26().new Solution();
         int[] inputs = new int[]{1, 1, 1, 1, 2};
         int[] expected = new int[]{1, 2};
         int result = s.removeDuplicates(inputs);
@@ -78,6 +78,9 @@ public class RemoveDupsFromSortedArray {
     }
 
     class Solution {
+        /**
+         * 2 pointers solution
+         */
         public int removeDuplicates(int[] nums) {
             // 1. edge condition
             if (nums == null) {
