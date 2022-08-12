@@ -4,7 +4,7 @@ package LinkedList;
  * https://leetcode.com/problems/linked-list-cycle/
  * #141
  */
-public class LinkedListCycle {
+public class LinkedListCycle141 {
     /**
      * Definition for singly-linked list.
      */

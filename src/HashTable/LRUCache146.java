@@ -39,11 +39,11 @@ import java.util.Map;
  * cache.get(4);       // returns 4
  */
 
-class LRUCache {
+class LRUCache146 {
     private LinkedHashMap<Integer, Integer> map;
     private int size;
 
-    public LRUCache(int capacity) {
+    public LRUCache146(int capacity) {
         size = capacity;
         map = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
             @Override
@@ -60,6 +60,43 @@ class LRUCache {
     public void put(int key, int value) {
         map.put(key, value);
     }
+
+    class LRUCache {
+        private LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
+        private int capacity;
+
+        public LRUCache(int capacity) {
+            this.capacity = capacity;
+        }
+
+        public int get(int key) {
+            if (!map.containsKey(key)) {
+                return -1;
+            }
+            makeRecent(key);
+            return map.get(key);
+        }
+
+        public void put(int key, int value) {
+            if (map.containsKey(key)) {
+                map.put(key, value);
+                makeRecent(key);
+                return;
+            }
+            if (map.size() == capacity) {
+                int a = map.keySet().iterator().next();
+                map.remove(a);
+            }
+            map.put(key, value);
+        }
+
+        private void makeRecent(int key) {
+            int value = map.get(key);
+            map.remove(key);
+            map.put(key, value);
+        }
+    }
+
 }
 
 /**

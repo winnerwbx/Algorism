@@ -87,5 +87,29 @@ public class SubarraySumEqualsK560 {
             }
             return count;
         }
+
+        /**
+         * Normal solution O(n2)
+         */
+        public int subarraySumON2(int[] nums, int k) {
+            // 1. build a sum array
+            int length = nums.length;
+            int[] sums = new int[length + 1];
+            sums[0] = 0;
+            for (int i = 0; i < nums.length; i++) {
+                sums[i + 1] = sums[i] + nums[i];
+            }
+            // 2. find out count of subarray sum equals k
+            int count = 0;
+            for (int i = 0; i < sums.length; i++) {
+                for (int j = i + 1; j < sums.length; j++) {
+                    if (sums[j] - sums[i] == k) {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+
     }
 }

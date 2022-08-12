@@ -4,7 +4,7 @@ package LinkedList;
  * https://leetcode.com/problems/middle-of-the-linked-list/
  * #876
  */
-public class MiddleOfTheLinkedList {
+public class MiddleOfTheLinkedList876 {
     /**
      * Definition for singly-linked list.
      */

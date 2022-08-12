@@ -2,6 +2,8 @@ package recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +25,7 @@ import java.util.stream.Collectors;
  * <p>
  * https://leetcode.com/problems/permutations
  */
-public class Permutations {
+public class Permutations46 {
     public static void main(String[] args) {
         Solution s = new Solution();
         int[] nums = new int[]{1, 2, 3};
@@ -94,6 +96,37 @@ public class Permutations {
                 backtrack(input, list, nums, used);
                 list.remove(list.size() - 1);
                 used[i] = false;
+            }
+        }
+
+        class Solution {
+            List<List<Integer>> res = new ArrayList<>();
+
+            public List<List<Integer>> permute(int[] nums) {
+                LinkedHashSet<Integer> track = new LinkedHashSet<>();
+                backtrack(nums, track);
+                return res;
+            }
+
+            private void backtrack(int[] nums, LinkedHashSet<Integer> track) {
+                // 触发结束条件：全部用完
+                if (track.size() == nums.length) {
+                    List<Integer> list = new ArrayList<>();
+                    Iterator<Integer> iterator = track.iterator();
+                    while (iterator.hasNext()) {
+                        list.add(iterator.next());
+                    }
+                    res.add(list);
+                    return;
+                }
+                for (int i = 0; i < nums.length; i++) {
+                    if (track.contains(nums[i])) {
+                        continue;
+                    }
+                    track.add(nums[i]);
+                    backtrack(nums, track);
+                    track.remove(nums[i]);
+                }
             }
         }
 
