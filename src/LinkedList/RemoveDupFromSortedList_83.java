@@ -1,9 +1,5 @@
 package LinkedList;
 
-/**
- * @author wangboxuan <wangboxuan@kuaishou.com>
- * @date 2022/08/04
- */
 public class RemoveDupFromSortedList_83 {
     class Solution {
         public ListNode deleteDuplicates(ListNode head) {

@@ -2,10 +2,6 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
-/**
- * @author wangboxuan <wangboxuan@kuaishou.com>
- * @date 2021/09/08
- */
 public class CoinChange322 {
     class Solution {
         public int coinChange(int[] coins, int amount) {
