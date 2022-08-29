@@ -11,9 +11,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * 1. 启动5个线程
  * 2. 所有线程等待
  * 3. 通知线程同时恢复
- *
- * @author wangboxuan@meituan.com
- * @since 2019/10/22
  */
 public class FiveThreadsWaitAndNotify {
     public static void main(String... args) {
